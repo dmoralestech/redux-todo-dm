@@ -15,8 +15,13 @@ const optionsEngine = [
     {value: '3L', label: '3 Liter'}
 ];
 
+const optionsTransmission = [
+    {value: 'MAN', label: 'Manual'},
+    {value: 'AUTO', label: 'Automatic'}
+];
+
 const optionsGroup = {
-    options: [optionsDriveType, optionsEngine]
+    options: [optionsDriveType, optionsEngine, optionsTransmission]
 }
 
 function logChange(val) {
@@ -28,18 +33,14 @@ const App = () => (
         <AddTodo />
         <VisibleTodoList />
         <Footer />
-        <Select
+        {optionsGroup.options.map( (optionItem, i) => <Select
+            key = {i}
             name="form-field-name"
-            value="one"
-            options={optionsDriveType}
+            value={optionItem[0].value}
+            options={optionItem}
             onChange={logChange}
-        />
-        <Select
-            name="form-field-name"
-            value="one"
-            options={optionsEngine}
-            onChange={logChange}
-        />
+        /> )}
+
     </div>
 );
 
