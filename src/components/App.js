@@ -4,9 +4,9 @@ import AddTodo from './AddTodo';
 import VisibleTodoList from './VisibleTodoList';
 import Select from 'react-select';
 
-const options = [
-    {value: 'one', label: 'One'},
-    {value: 'two', label: 'Two'}
+const optionsDriveType = [
+    {value: 'LHD', label: 'Left Hand Drive'},
+    {value: 'RHD', label: 'Right Hand Drive'}
 ];
 
 const optionsEngine = [
@@ -14,6 +14,10 @@ const optionsEngine = [
     {value: '2L', label: '2 Liter'},
     {value: '3L', label: '3 Liter'}
 ];
+
+const optionsGroup = {
+    options: [optionsDriveType, optionsEngine]
+}
 
 function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
@@ -27,7 +31,7 @@ const App = () => (
         <Select
             name="form-field-name"
             value="one"
-            options={options}
+            options={optionsDriveType}
             onChange={logChange}
         />
         <Select
