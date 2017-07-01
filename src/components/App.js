@@ -24,6 +24,13 @@ const optionsGroup = {
     options: [optionsDriveType, optionsEngine, optionsTransmission]
 }
 
+const optionsGroupV2 = [
+    {name: 'Drive Type', options: optionsDriveType},
+    {name: 'Engine', options: optionsEngine},
+    {name: 'Transmission', options: optionsTransmission},
+]
+
+
 function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
