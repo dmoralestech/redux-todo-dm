@@ -40,13 +40,23 @@ const App = () => (
         <AddTodo />
         <VisibleTodoList />
         <Footer />
-        {optionsGroup.options.map( (optionItem, i) => <Select
-            key = {i}
-            name="form-field-name"
-            value={optionItem[0].value}
-            options={optionItem}
-            onChange={logChange}
-        /> )}
+        {optionsGroup.options.map((optionItem, i) =>
+            <Select
+                key={i}
+                name="form-field-name"
+                value={optionItem[0].value}
+                options={optionItem}
+                onChange={logChange}/>
+        )}
+
+        {optionsGroupV2.map((optionObj, i) =>
+            <Select
+                key={i}
+                name="form-field-name"
+                value={optionObj.name}
+                options={optionObj.options}
+                onChange={logChange}/>
+        )}
 
     </div>
 );
