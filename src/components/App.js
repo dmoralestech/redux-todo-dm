@@ -53,7 +53,8 @@ const App = () => (
             <Select
                 key={i}
                 name="form-field-name"
-                value={optionObj.name}
+                label="Nice"
+                value={optionObj.options[0].value}
                 options={optionObj.options}
                 onChange={logChange}/>
         )}
