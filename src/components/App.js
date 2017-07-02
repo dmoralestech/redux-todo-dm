@@ -55,7 +55,6 @@ class OptionType extends Component {
             <div className="optionName">
                 <h3 className="optionName-heading">{this.props.label}</h3>
                 <Select autofocus simpleValue
-                        key={i}
                         name="form-field-name"
                         label={this.props.label}
                         value={this.state.selectValue}
@@ -66,28 +65,15 @@ class OptionType extends Component {
 }
 
 class OptionSelect extends Component {
-
-
     render() {
-
         return <div>
-            {optionsGroup.options.map((optionItem, i) =>
-                <Select autofocus simpleValue
-                        key={i}
-                        name="form-field-name"
-                        value={this.state.selectValue}
-                        options={optionItem}
-                        onChange={logChange}/>
-            )}
-
             {optionsGroupV2.map((optionObj, i) =>
                 <Select autofocus simpleValue
                         key={i}
                         name="form-field-name"
-                        label="Nice"
-                        value={optionObj.options[0].value}
+                        label={optionObj.name}
                         options={optionObj.options}
-                        onChange={logChange}/>
+                />
             )}
         </div>
     }
