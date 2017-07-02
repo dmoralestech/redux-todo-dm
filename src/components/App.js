@@ -51,31 +51,29 @@ class OptionType extends Component {
     }
 
     render() {
-        return (
-            <div className="optionName">
-                <h3 className="optionName-heading">{this.props.label}</h3>
-                <Select autofocus simpleValue
-                        name="form-field-name"
-                        label={this.props.label}
-                        value={this.state.selectValue}
-                        options={this.props.options}
-                        onChange={this.updateValue}/>);
-            </div>);
+        return (<div className="optionName">
+            <h3 className="optionName-heading">{this.props.label}</h3>
+            <Select autofocus simpleValue
+                    name="form-field-name"
+                    label={this.props.label}
+                    value={this.state.selectValue}
+                    options={this.props.options}
+                    onChange={this.updateValue}/>);
+        </div>);
     }
 }
 
 class OptionSelect extends Component {
     render() {
-        return <div>
-            {optionsGroupV2.map((optionObj, i) =>
-                <Select autofocus simpleValue
-                        key={i}
-                        name="form-field-name"
+        return (
+            <div>
+                {optionsGroupV2.map((optionObj, i) =>
+                    <OptionType
                         label={optionObj.name}
                         options={optionObj.options}
-                />
-            )}
-        </div>
+                    />
+                )}
+            </div>);
     }
 }
 
