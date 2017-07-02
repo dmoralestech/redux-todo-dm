@@ -35,8 +35,16 @@ function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
 
-const OptionSelect = () => (
-    <div>
+const OptionSelect = () => {
+
+    function updateValue(newValue) {
+        console.log('State changed to ' + newValue);
+        this.setState({
+            selectValue: newValue
+        });
+    }
+
+    return <div>
         {optionsGroup.options.map((optionItem, i) =>
             <Select autofocus simpleValue
                     key={i}
@@ -56,7 +64,7 @@ const OptionSelect = () => (
                     onChange={logChange}/>
         )}
     </div>
-)
+}
 
 const App = () => (
     <div>
