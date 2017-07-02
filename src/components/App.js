@@ -39,13 +39,15 @@ class OptionType extends React.Component {
     constructor(props) {
         super(props);
         this.updateValue = this.updateValue.bind(this);
-        this.state = {selectValue: ''};
+        console.log('initial', this.props.options[0].value)
+        this.state = {selectValue: this.props.options[0].value};
+        console.log('state', this.state);
     }
 
     updateValue(newValue) {
-        console.log('State changed to ' + newValue);
+        console.log('state', this.state);
         this.setState({selectValue: newValue});
-        console.log('state' , this.state);
+        console.log('state', this.state);
     }
 
     render() {
