@@ -36,18 +36,16 @@ function logChange(val) {
 }
 
 class OptionType extends React.Component {
-    constructor(props, context) {
-        super(props, context)
-        this.state = {
-            selectValue: ''
-        }
+    constructor(props) {
+        super(props);
+        this.updateValue = this.updateValue.bind(this);
+        this.state = {selectValue: ''};
     }
 
     updateValue(newValue) {
         console.log('State changed to ' + newValue);
-        this.setState({
-            selectValue: newValue
-        });
+        this.setState({selectValue: newValue});
+        console.log('state' , this.state);
     }
 
     render() {
@@ -55,7 +53,6 @@ class OptionType extends React.Component {
             <h3 className="optionName-heading">{this.props.label}</h3>
             <Select autofocus simpleValue
                     name="form-field-name"
-                    label={this.props.label}
                     value={this.state.selectValue}
                     options={this.props.options}
                     onChange={this.updateValue}/>);
