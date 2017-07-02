@@ -41,7 +41,7 @@ const App = () => (
         <VisibleTodoList />
         <Footer />
         {optionsGroup.options.map((optionItem, i) =>
-            <Select
+            <Select autofocus simpleValue
                 key={i}
                 name="form-field-name"
                 value={optionItem[0].value}
@@ -50,7 +50,7 @@ const App = () => (
         )}
 
         {optionsGroupV2.map((optionObj, i) =>
-            <Select
+            <Select autofocus simpleValue
                 key={i}
                 name="form-field-name"
                 label="Nice"
