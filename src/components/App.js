@@ -35,35 +35,37 @@ function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
 
-const OptionSelect = () => {
+class OptionSelect extends React.Component {
 
-    function updateValue(newValue) {
+    updateValue(newValue) {
         console.log('State changed to ' + newValue);
         this.setState({
             selectValue: newValue
         });
     }
 
-    return <div>
-        {optionsGroup.options.map((optionItem, i) =>
-            <Select autofocus simpleValue
-                    key={i}
-                    name="form-field-name"
-                    value={optionItem[0].value}
-                    options={optionItem}
-                    onChange={logChange}/>
-        )}
+    render() {
+        return <div>
+            {optionsGroup.options.map((optionItem, i) =>
+                <Select autofocus simpleValue
+                        key={i}
+                        name="form-field-name"
+                        value={optionItem[0].value}
+                        options={optionItem}
+                        onChange={logChange}/>
+            )}
 
-        {optionsGroupV2.map((optionObj, i) =>
-            <Select autofocus simpleValue
-                    key={i}
-                    name="form-field-name"
-                    label="Nice"
-                    value={optionObj.options[0].value}
-                    options={optionObj.options}
-                    onChange={logChange}/>
-        )}
-    </div>
+            {optionsGroupV2.map((optionObj, i) =>
+                <Select autofocus simpleValue
+                        key={i}
+                        name="form-field-name"
+                        label="Nice"
+                        value={optionObj.options[0].value}
+                        options={optionObj.options}
+                        onChange={logChange}/>
+            )}
+        </div>
+    }
 }
 
 const App = () => (
