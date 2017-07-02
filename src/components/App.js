@@ -35,7 +35,13 @@ function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
 
-class OptionSelect extends React.Component {
+class OptionType extends Component {
+    constructor(props, context) {
+        super(props, context)
+        this.state = {
+            selectValue: ''
+        }
+    }
 
     updateValue(newValue) {
         console.log('State changed to ' + newValue);
@@ -45,12 +51,31 @@ class OptionSelect extends React.Component {
     }
 
     render() {
+        return (
+            <div className="optionName">
+                <h3 className="optionName-heading">{this.props.label}</h3>
+                <Select autofocus simpleValue
+                        key={i}
+                        name="form-field-name"
+                        label={this.props.label}
+                        value={this.state.selectValue}
+                        options={this.props.options}
+                        onChange={this.updateValue}/>);
+            </div>);
+    }
+}
+
+class OptionSelect extends Component {
+
+
+    render() {
+
         return <div>
             {optionsGroup.options.map((optionItem, i) =>
                 <Select autofocus simpleValue
                         key={i}
                         name="form-field-name"
-                        value={optionItem[0].value}
+                        value={this.state.selectValue}
                         options={optionItem}
                         onChange={logChange}/>
             )}
