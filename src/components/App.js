@@ -30,7 +30,6 @@ const optionsGroupV2 = [
     {name: 'Transmission', options: optionsTransmission},
 ]
 
-
 function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
@@ -79,11 +78,34 @@ class OptionSelect extends React.Component {
     }
 }
 
+var optionsTest = [
+    { label: 'One', value: 1 },
+    { label: 'Two', value: 2 },
+    { label: 'Three', value: 3 },
+];
+
+var Container = React.createClass({
+    getInitialState () {
+        return { value: '' };
+    },
+    updateValue (value) {
+        this.setState({ value: value });
+    },
+    render () {
+        return React.createElement(Select, {
+            options: optionsTest,
+            onChange: this.updateValue,
+            value: this.state.value,
+        });
+    }
+});
+
 const App = () => (
     <div>
         <AddTodo />
         <VisibleTodoList />
         <Footer />
+        <Container/>
         <OptionSelect/>
     </div>
 )
