@@ -59,8 +59,8 @@ class OptionType extends React.Component {
                     name="form-field-name"
                     value={this.state.selectValue}
                     options={this.props.options}
-                    onChange={this.updateValue}/>);
-        </div>);
+                    onChange={this.updateValue}/>
+        </div>)
     }
 }
 
@@ -75,7 +75,7 @@ class OptionSelect extends React.Component {
                         options={optionObj.options}
                     />
                 )}
-            </div>);
+            </div>)
     }
 }
 
@@ -86,6 +86,6 @@ const App = () => (
         <Footer />
         <OptionSelect/>
     </div>
-);
+)
 
 export default App;
