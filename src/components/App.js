@@ -47,10 +47,9 @@ class OptionType extends React.Component {
     updateValue(newValue) {
         console.log('newValue', newValue);
         this.setState({selectValue: newValue}, () => {
-            console.log('set state called');
-            console.log('state', this.state);
+            console.log('state after callback', this.state);
         });
-
+        console.log('state in updateValue', this.state);
     }
 
     render() {
