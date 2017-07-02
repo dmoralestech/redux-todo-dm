@@ -35,30 +35,35 @@ function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
 
+const OptionSelect = () => (
+    <div>
+        {optionsGroup.options.map((optionItem, i) =>
+            <Select autofocus simpleValue
+                    key={i}
+                    name="form-field-name"
+                    value={optionItem[0].value}
+                    options={optionItem}
+                    onChange={logChange}/>
+        )}
+
+        {optionsGroupV2.map((optionObj, i) =>
+            <Select autofocus simpleValue
+                    key={i}
+                    name="form-field-name"
+                    label="Nice"
+                    value={optionObj.options[0].value}
+                    options={optionObj.options}
+                    onChange={logChange}/>
+        )}
+    </div>
+)
+
 const App = () => (
     <div>
         <AddTodo />
         <VisibleTodoList />
         <Footer />
-        {optionsGroup.options.map((optionItem, i) =>
-            <Select autofocus simpleValue
-                key={i}
-                name="form-field-name"
-                value={optionItem[0].value}
-                options={optionItem}
-                onChange={logChange}/>
-        )}
-
-        {optionsGroupV2.map((optionObj, i) =>
-            <Select autofocus simpleValue
-                key={i}
-                name="form-field-name"
-                label="Nice"
-                value={optionObj.options[0].value}
-                options={optionObj.options}
-                onChange={logChange}/>
-        )}
-
+        <OptionSelect/>
     </div>
 );
 
