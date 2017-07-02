@@ -35,7 +35,7 @@ function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
 
-class OptionType extends Component {
+class OptionType extends React.Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
@@ -63,12 +63,13 @@ class OptionType extends Component {
     }
 }
 
-class OptionSelect extends Component {
+class OptionSelect extends React.Component {
     render() {
         return (
             <div>
                 {optionsGroupV2.map((optionObj, i) =>
                     <OptionType
+                        key={i}
                         label={optionObj.name}
                         options={optionObj.options}
                     />
