@@ -3,6 +3,8 @@ import Footer from './Footer';
 import AddTodo from './AddTodo';
 import VisibleTodoList from './VisibleTodoList';
 import Select from 'react-select';
+import createClass from 'create-react-class';
+import PropTypes from 'prop-types';
 
 const optionsDriveType = [
     {value: 'LHD', label: 'Left Hand Drive'},
@@ -101,11 +103,47 @@ var Container = React.createClass({
     }
 });
 
+const FLAVOURS = [
+    {label: 'DM Chocolate', value: 'chocolate'},
+    {label: 'DM Vanilla', value: 'vanilla'},
+    {label: 'Strawberry', value: 'strawberry'},
+    {label: 'Caramel', value: 'caramel'},
+    {label: 'Cookies and Cream', value: 'cookiescream'},
+    {label: 'Peppermint', value: 'peppermint'},
+];
+
+
+var DMSelect = createClass({
+    displayName: 'MultiSelectField',
+    propTypes: {
+        label: PropTypes.string,
+    },
+    getInitialState () {
+        return {
+            options: FLAVOURS,
+            value: [],
+        };
+    },
+    handleSelectChange (value) {
+        console.log('You\'ve selected:', value);
+        this.setState({value});
+    },
+    render () {
+        return (
+            <div>
+                <Select value={this.state.value} placeholder="Select your favourite(s)"
+                        options={this.state.options} onChange={this.handleSelectChange}/>
+            </div>);
+    }
+});
+
+
 const App = () => (
     <div>
         <AddTodo />
         <VisibleTodoList />
         <Footer />
+        <DMSelect label='Hello World'/>
         <Container/>
         <OptionSelect/>
     </div>
