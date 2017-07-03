@@ -36,6 +36,28 @@ function logChange(val) {
     console.log("Selected: " + JSON.stringify(val));
 }
 
+const styleObj = {
+    // bottom: '0',
+    color: '#aaa',
+    // left: '0',
+    lineHeight: '34px',
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    position: 'absolute',
+    // right: '0',
+    // top: '0',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+    display: 'block',
+    height: '34px',
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    verticalAlign: 'middle'
+}
+
 class OptionType extends React.Component {
     constructor(props) {
         super(props);
@@ -53,10 +75,11 @@ class OptionType extends React.Component {
         console.log('state in updateValue', this.state);
     }
 
+
     render() {
         return (<div className="optionName">
             <h3 style={{color: 'red', boxSizing: 'border-box'}} className="optionName-heading">{this.props.label}</h3>
-            <Select style={{color: 'blue', boxSizing: 'border-box', width:'100px'}}
+            <Select style={styleObj}
                     autofocus simpleValue
                     name="form-field-name"
                     value={this.state.selectValue}
@@ -82,17 +105,17 @@ class OptionSelect extends React.Component {
 }
 
 var optionsTest = [
-    { label: 'One', value: 1 },
-    { label: 'Two', value: 2 },
-    { label: 'Three', value: 3 },
+    {label: 'One', value: 1},
+    {label: 'Two', value: 2},
+    {label: 'Three', value: 3},
 ];
 
 var Container = React.createClass({
     getInitialState () {
-        return { value: '' };
+        return {value: ''};
     },
     updateValue (value) {
-        this.setState({ value: value });
+        this.setState({value: value});
     },
     render () {
         return React.createElement(Select, {
