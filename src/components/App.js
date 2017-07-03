@@ -53,8 +53,9 @@ class OptionType extends React.Component {
 
     render() {
         return (<div className="optionName">
-            <h3 className="optionName-heading">{this.props.label}</h3>
-            <Select autofocus simpleValue
+            <h3 style={{color: 'red', boxSizing: 'border-box'}} className="optionName-heading">{this.props.label}</h3>
+            <Select style={{color: 'blue', boxSizing: 'border-box', width:'100px'}}
+                    autofocus simpleValue
                     name="form-field-name"
                     value={this.state.selectValue}
                     options={this.props.options}
